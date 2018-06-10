@@ -25,7 +25,7 @@ def main(wf):
         wf.add_item('search on caniuse.com', arg = search_url)
 
     for key in list:
-        url = 'https://caniuse.com/#feat=spdy' + key
+        url = 'https://caniuse.com/#feat=' + key
         val = use_data[key]
         wf.add_item(
             title = val['title'],
