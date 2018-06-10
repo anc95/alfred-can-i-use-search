@@ -17,12 +17,11 @@ def main(wf):
     
     # 请求数据
     use_data = wf.cached_data('data', data, max_age=60 * 60 * 24)['data']
-    # 添加 item 到 workflow 列表
     list = wf.filter(wf.args[0], use_data, key = lambda o: o)
 
     if not list:
         search_url = 'https://caniuse.com/#search=' + wf.args[0]
-        wf.add_item('search on caniuse.com', arg = search_url)
+        wf.add_item('search on caniuse.com', arg = search_url, valid = True)
 
     for key in list:
         url = 'https://caniuse.com/#feat=' + key
